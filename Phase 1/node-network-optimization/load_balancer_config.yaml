@@ -1,0 +1,19 @@
+# Example load balancer config (HAProxy-like)
+frontend:
+  bind: "*:8545"
+  default_backend: validators
+
+backend:
+  validators:
+    mode: tcp
+    balance: roundrobin
+    servers:
+      - name: validator1
+        host: node1.raasbridge.internal
+        port: 8545
+      - name: validator2
+        host: node2.raasbridge.internal
+        port: 8545
+      - name: validator3
+        host: node3.raasbridge.internal
+        port: 8545

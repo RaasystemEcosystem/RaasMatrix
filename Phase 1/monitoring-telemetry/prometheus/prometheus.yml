@@ -1,0 +1,17 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: "node_exporter"
+    static_configs:
+      - targets:
+        - "node1.raasbridge.internal:9100"
+        - "node2.raasbridge.internal:9100"
+        - "node3.raasbridge.internal:9100"
+
+  - job_name: "raasbridge_metrics"
+    metrics_path: /metrics
+    static_configs:
+      - targets:
+        - "node1.raasbridge.internal:9466"
+        - "node2.raasbridge.internal:9466"

@@ -1,0 +1,10 @@
+# Firewall rules (example)
+allow:
+  - ip_range: "10.0.0.0/16"   # internal VPC
+    ports: [8545, 30303, 9100, 9466]
+  - ip_range: "192.168.0.0/24"
+    ports: [22]
+
+deny:
+  - ip_range: "0.0.0.0/0"
+    ports: [8545]  # block public access unless via LB

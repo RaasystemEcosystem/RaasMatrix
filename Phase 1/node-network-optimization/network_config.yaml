@@ -1,0 +1,10 @@
+# Network config for RaasBridge cluster
+p2p_port: 30303
+rpc_port: 8545
+max_peers: 100
+connection_timeout_seconds: 10
+keepalive_interval_seconds: 20
+
+peers:
+  - enode://pubkey@node1.raasbridge.internal:30303
+  - enode://pubkey@node2.raasbridge.internal:30303

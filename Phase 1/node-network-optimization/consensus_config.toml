@@ -1,0 +1,7 @@
+# Consensus tuning (example)
+type = "PoA"
+block_time_ms = 400           # lowered to increase TPS
+epoch_length = 2000
+validator_rotation = true
+max_tx_per_block = 2000
+finality_threshold = 2        # number of confirmations for finality

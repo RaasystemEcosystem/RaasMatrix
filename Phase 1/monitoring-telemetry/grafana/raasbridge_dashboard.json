@@ -1,0 +1,20 @@
+{
+  "dashboard": {
+    "id": null,
+    "title": "RaasBridge - Phase1 Dashboard (Example)",
+    "panels": [
+      {
+        "type": "graph",
+        "title": "Average TPS",
+        "targets": [{"expr": "sum(rate(raas_tx_submitted_total[1m]))"}],
+        "gridPos": {"h": 8, "w": 24, "x": 0, "y": 0}
+      },
+      {
+        "type": "graph",
+        "title": "Avg Confirmation Latency (ms)",
+        "targets": [{"expr": "histogram_quantile(0.95, sum(rate(raas_tx_latency_bucket[5m])) by (le))"}],
+        "gridPos": {"h": 8, "w": 24, "x": 0, "y": 8}
+      }
+    ]
+  }
+}

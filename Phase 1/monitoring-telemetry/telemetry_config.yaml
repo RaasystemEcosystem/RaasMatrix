@@ -1,0 +1,15 @@
+# Telemetry configuration for Prometheus exporters and node labels
+scrape_interval: 5s
+evaluation_interval: 15s
+
+prometheus:
+  listen_port: 9090
+  job_name: raasbridge_nodes
+  targets:
+    - node1.raasbridge.internal:9100
+    - node2.raasbridge.internal:9100
+    - node3.raasbridge.internal:9100
+
+alerting:
+  email: ops@raasystem.example
+  pagerduty_integration_key: "PAGERDUTY_KEY_PLACEHOLDER"

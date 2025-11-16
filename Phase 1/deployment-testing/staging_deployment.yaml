@@ -1,0 +1,36 @@
+# Staging deployment manifest (example)
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: raasbridge-validator-staging
+  labels:
+    app: raasbridge-validator
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: raasbridge-validator
+  template:
+    metadata:
+      labels:
+        app: raasbridge-validator
+    spec:
+      containers:
+        - name: validator
+          image: raasystem/raasbridge-validator:staging-1.0.0
+          resources:
+            limits:
+              cpu: "2"
+              memory: "4Gi"
+            requests:
+              cpu: "1"
+              memory: "2Gi"
+          env:
+            - name: RPC_PORT
+              value: "8545"
+            - name: PEER_PORT
+              value: "30303"
+          ports:
+            - containerPort: 8545
+            - containerPort: 30303
+      restartPolicy: Always
